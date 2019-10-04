@@ -75,18 +75,15 @@ IPAddress operator-(IPAddress& lhs, IPAddress& rhs) {
 
 bool operator<(const IPAddress& lhs, const IPAddress& rhs) {
 	if (lhs.a < rhs.a) {
-		return lhs < rhs;
+		return true;
+	} else if ((lhs.a == rhs.a) && (lhs.b < rhs.b)) {
+		return true;
+	} else if ((lhs.a == rhs.a) && (lhs.b == rhs.b) && (lhs.c < rhs.c)) {
+		return true;
+	} else if ((lhs.a == rhs.a) && (lhs.b == rhs.b) && (lhs.c == rhs.c) && (lhs.d < rhs.d)) {
+		return true;
 	}
-	if (lhs.b < rhs.b) {
-		return lhs < rhs;
-	}
-	if (lhs.c < rhs.c) {
-		return lhs < rhs;
-	}
-	if (lhs.d < rhs.d) {
-		return lhs < rhs;
-	}
-	return lhs < rhs;
+	return false;
 }
 
 bool operator==(const IPAddress& lhs, const IPAddress& rhs) {
@@ -147,20 +144,21 @@ int main() {
 			int a, b, c, d;
 			cin >> a >> b >> c >> d;
 			tmp.CreateAddress(a, b, c, d);
-			cout << ip - tmp;
+			cout << ip - tmp << endl;
 			break;
 		}
 		case 5: {
-			cout << "Input the values of second ip-address you want to compare: " << endl;
+			IPAddress tmp;
+			cout << "Input the values of address you want to compare: " << endl;
 			int a, b, c, d;
 			cin >> a >> b >> c >> d;
 			tmp.CreateAddress(a, b, c, d);
 			if (ip < tmp) {
-				cout << ip << "less than" << tmp << endl;
+				cout << ip << " less than " << tmp << endl;
 			} else if (ip == tmp) {
-				cout << ip << "=" << tmp << endl;
+				cout << ip << " = " << tmp << endl;
 			} else {
-				cout << ip << "is bigger than" << tmp << endl;
+				cout << ip << " is bigger than" << tmp << endl;
 			}
 			break;
 		}

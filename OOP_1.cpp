@@ -148,7 +148,6 @@ int main() {
 			break;
 		}
 		case 5: {
-			IPAddress tmp;
 			cout << "Input the values of address you want to compare: " << endl;
 			int a, b, c, d;
 			cin >> a >> b >> c >> d;

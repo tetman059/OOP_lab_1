@@ -1,6 +1,9 @@
 OOP_exercise_01
 class IPAddress with useful functions
 
-more info(in Russian):
+To run this program in bash:
+cmake CMakeLists.txt
+make
+./OOP_1
 
-report.docx
+more info(in Russian): report.docxf
